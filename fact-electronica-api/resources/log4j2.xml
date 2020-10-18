@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<Property name="logLevel">INFO</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="fileLogger"
+			fileName="${sys:user.dir}/Logs/fact-electronica-api/fact-electronica-api.log"
+			filePattern="${sys:user.dir}/Logs/fact-electronica-api/fact-electronica-api.log.%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %X{RequestID} %c{1} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="uy.com.antel" level="${logLevel}"
+			additivity="true">
+			<appender-ref ref="fileLogger" level="${logLevel}" />
+		</Logger>
+		<Root level="ERROR" additivity="false">
+			<appender-ref ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>
