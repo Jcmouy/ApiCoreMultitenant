@@ -1,0 +1,16 @@
+datasource:
+  fanc:
+    jdbc-url: ''
+    username: ''
+    password: ''
+    driver-class-name: oracle.jdbc.OracleDriver
+  fant:
+    jdbc-url: ''
+    username: ''
+    password: ''
+    driver-class-name: oracle.jdbc.OracleDriver
+jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
